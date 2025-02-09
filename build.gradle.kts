@@ -1,7 +1,7 @@
 plugins {
     `java-library`
     `maven-publish`
-    signing
+//    signing
 }
 
 allprojects {
@@ -17,7 +17,7 @@ allprojects {
 subprojects {
     apply(plugin = "java-library")
     apply(plugin = "maven-publish")
-    apply(plugin = "signing")
+//    apply(plugin = "signing")
 
     dependencies {
         compileOnly("org.jetbrains:annotations:24.0.1")
@@ -98,11 +98,11 @@ subprojects {
         }
     }
 
-    signing {
-        setRequired {
-            gradle.taskGraph.allTasks.any { it is PublishToMavenRepository }
-        }
-        useGpgCmd()
-        sign(publishing.publications["mavenJava"])
-    }
+//    signing {
+//        setRequired {
+//            gradle.taskGraph.allTasks.any { it is PublishToMavenRepository }
+//        }
+//        useGpgCmd()
+//        sign(publishing.publications["mavenJava"])
+//    }
 }
